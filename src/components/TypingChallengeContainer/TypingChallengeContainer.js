@@ -10,14 +10,17 @@ const TypingChallengeContainer = (props) => {
         {/* Words Typed */}
         <ChallengeDetailsCard
           cardName="words Per Minutes"
-          cardValue={props.wpm ? props.wpm : 0}
+          cardValue={props.wpm == "NaN" ? 0 : props.wpm}
         />
 
         {/* Characters Typed */}
         <ChallengeDetailsCard cardName="Level" cardValue={props.level} />
 
         {/* Mistakes */}
-        <ChallengeDetailsCard cardName="mistakes" cardValue={props.mistakes} />
+        <ChallengeDetailsCard
+          cardName="mistakes"
+          cardValue={props.mistakes == "-1" ? 0 : props.mistakes}
+        />
       </div>
 
       {/* Typing Challenge */}

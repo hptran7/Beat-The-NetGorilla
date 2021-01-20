@@ -43,8 +43,8 @@
 .textarea {
   text-align: left;
   flex-grow: 1;
-  height: 400px;
-  width: 50%;
+  height: 220px;
+  width: 60%;
   padding: 10px;
   line-height: 18px;
   flex-wrap: wrap;
@@ -52,7 +52,8 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: scroll;
   position: absolute;
-  left: 350px;
+  left: 20%;
+  font-size: 75px;
 }
 
 .textarea:hover {
@@ -70,35 +71,75 @@
 
 .correctWord {
   color: blue;
-  font-size: 15px;
+  font-size: 30px;
   font-family: "Montserrat", sans-serif;
 }
 
 .incorrectWord {
   color: red;
-  font-size: 15px;
+  font-size: 30px;
   font-family: "Montserrat", sans-serif;
 }
 .standard-word {
-  font-size: 15px;
+  font-size: 30px;
   font-family: "Montserrat", sans-serif;
+}
+.current-word {
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  color: green;
 }
 .textarea-hidden {
   text-align: left;
   flex-grow: 1;
-  height: 400px;
-  width: 50%;
+  height: 50px;
+  width: 60%;
   padding: 10px;
   line-height: 18px;
   flex-wrap: wrap;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: scroll;
-  color: transparent;
+  color: black;
   position: absolute;
   background: transparent;
-  left: 550px;
+  left: 20%;
+  top: 75%;
   caret-color: red;
-  font-size: 15px;
+  font-size: 25px;
   font-family: "Montserrat", sans-serif;
+}
+
+.div-inline {
+  display: inline;
+}
+
+.level-container {
+  display: flex;
+}
+
+.level-button {
+  margin: 3px;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  color: grey;
+  height: 25px;
+}
+.level-button:hover {
+  color: blue;
+  cursor: pointer;
+}
+.refresh-icon {
+  color: grey;
+}
+.refresh-icon:hover {
+  color: darkslateblue;
+  cursor: pointer;
+}
+
+.level-title {
+  height: 25px;
+  margin: 3px;
+  padding: 1.5px;
 }
