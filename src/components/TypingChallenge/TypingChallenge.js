@@ -2,9 +2,10 @@ import "./TypingChallenge.css";
 import { connect } from "react-redux";
 import React, { useEffect, useState, useRef } from "react";
 import testDetailsCalculator from "../../helper/testDetailsCalculator";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import refreshIcon from "@iconify-icons/mdi/refresh";
 import { randomElementSelector } from "../../helper/randomSelector";
+import outlineLeaderboard from "@iconify-icons/ic/outline-leaderboard";
 
 const TypingChallenge = (props) => {
   const [isTimeRunning, setIsTimeRunning] = useState(false);
@@ -15,10 +16,28 @@ const TypingChallenge = (props) => {
   const [currentWord, setCurrentWord] = useState(0);
   const [traps, setTraps] = useState([]);
   const [mixedWords, setMixedWords] = useState("");
-  const [testQuote, setTestQuote] = useState("");
   const [refresh, setRefresh] = useState(false);
+  const [showGuide, setShowguide] = useState(true);
   const myRef = useRef(null);
   const executeScroll = () => myRef.current.scrollIntoView();
+
+  const punctuationMarks = [
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "&",
+    "*",
+    "(",
+    ")",
+    ",",
+    ".",
+    "?",
+    ":",
+    ";",
+    " ",
+  ];
 
   const refreshText = () => {
     setRefresh(!refresh);
@@ -43,7 +62,7 @@ const TypingChallenge = (props) => {
   const generateRandomNumberList = (number, level) => {
     const arr = [];
     while (arr.length < +number) {
-      var r = Math.floor(Math.random() * level) + 1;
+      let r = Math.floor(Math.random() * level) + 1;
       if (arr.indexOf(r) === -1) arr.push(r);
     }
     return arr;
@@ -82,15 +101,15 @@ const TypingChallenge = (props) => {
   };
   useEffect(() => {
     if (props.level == 1) {
-      setTraps(generateRandomNumberList(50, 3694));
+      setTraps(generateRandomNumberList(50, 3000));
     } else if (props.level == 2) {
-      setTraps(generateRandomNumberList(140, 3694));
+      setTraps(generateRandomNumberList(140, 3000));
     } else if (props.level == 3) {
-      setTraps(generateRandomNumberList(240, 3694));
+      setTraps(generateRandomNumberList(240, 3000));
     } else if (props.level == 4) {
-      setTraps(generateRandomNumberList(340, 3694));
+      setTraps(generateRandomNumberList(340, 3000));
     } else if (props.level == 5) {
-      setTraps(generateRandomNumberList(440, 3694));
+      setTraps(generateRandomNumberList(440, 3000));
     }
     if (props.testType == "words") {
       setMixedWords(shuffle(props.originalValue.split(" ")).join(" "));
@@ -112,6 +131,7 @@ const TypingChallenge = (props) => {
   useEffect(() => {
     if (isTimeRunning && props.timeRemain > 0) {
       const timeintervalID = window.setInterval(() => {
+        setShowguide(false);
         props.OnCountDown();
       }, 1000);
       return () => window.clearInterval(timeintervalID);
@@ -121,7 +141,7 @@ const TypingChallenge = (props) => {
   const listOfWords = mixedWords.split("").map((word, index) => {
     return (
       <div className="div-inline" key={index}>
-        {traps.includes(index) && word !== " " ? (
+        {traps.includes(index) && !punctuationMarks.includes(word) ? (
           index == currentWord ? (
             <span ref={myRef} className="current-word">
               _
@@ -131,7 +151,9 @@ const TypingChallenge = (props) => {
           ) : mixedWords.split("")[index] == typedValue[index] ? (
             <span className="correctWord">{word}</span>
           ) : (
-            <span className="incorrectWord">{typedValue[index]}</span>
+            <span className="incorrectWord">
+              <u>{typedValue[index]}</u>
+            </span>
           )
         ) : index == currentWord ? (
           <span ref={myRef} className="current-word">
@@ -142,7 +164,7 @@ const TypingChallenge = (props) => {
         ) : mixedWords.split("")[index] == typedValue[index] ? (
           <span className="correctWord">{word}</span>
         ) : (
-          <span className="incorrectWord">{typedValue[index]}</span>
+          <span className="incorrectWord">{word}</span>
         )}
       </div>
     );
@@ -214,17 +236,32 @@ const TypingChallenge = (props) => {
       </div>
       <div className="timer-container">
         <p className="timer">{props.timeRemain}</p>
-        <p className="timer-info">start typing to begin the test</p>
+        {showGuide ? (
+          <p className="timer-info">
+            start typing in the box to begin the game
+          </p>
+        ) : null}
       </div>
-      <Icon
-        icon={refreshIcon}
-        width="1.25em"
-        height="1.25em"
-        onClick={() => {
-          refreshText();
-        }}
-        className="refresh-icon"
-      />
+      <div className="icons-row">
+        <Icon
+          icon={refreshIcon}
+          width="1.25em"
+          height="1.25em"
+          onClick={() => {
+            refreshText();
+          }}
+          className="refresh-icon"
+        />
+        <Icon
+          icon={outlineLeaderboard}
+          width="1.25em"
+          height="1.25em"
+          className="refresh-icon"
+          onClick={() => {
+            props.OnShowLeaderBoard();
+          }}
+        />
+      </div>
       <div className="textarea-container">
         <div className="textarea-left ">
           <div className="textarea">{listOfWords}</div>
@@ -246,6 +283,7 @@ const mapStateToProps = (state) => {
     level: state.level,
     originalQuotes: state.originalQuotes,
     testType: state.testType,
+    isFinished: state.isFinished,
   };
 };
 
@@ -273,6 +311,7 @@ const mapDispathToProps = (dispatch) => {
     OnChangeLevel: (level) => dispatch({ type: "CHANGE_LEVEL", level: level }),
     OnTypedChange: (testType) =>
       dispatch({ type: "TYPE_CHANGE", testType: testType }),
+    OnShowLeaderBoard: () => dispatch({ type: "SHOW_LEADERBOARD" }),
   };
 };
 export default connect(mapStateToProps, mapDispathToProps)(TypingChallenge);

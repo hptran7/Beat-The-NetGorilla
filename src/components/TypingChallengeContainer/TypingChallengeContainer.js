@@ -9,7 +9,7 @@ const TypingChallengeContainer = (props) => {
       <div className="details-container">
         {/* Words Typed */}
         <ChallengeDetailsCard
-          cardName="words Per Minutes"
+          cardName="WPM"
           cardValue={props.wpm == "NaN" ? 0 : props.wpm}
         />
 
@@ -25,7 +25,7 @@ const TypingChallengeContainer = (props) => {
 
       {/* Typing Challenge */}
       <div className="type-challenge-cont">
-        <TypingChallenge />
+        <TypingChallenge setShowLeaderBoard={props.setShowLeaderBoard} />
       </div>
     </div>
   );

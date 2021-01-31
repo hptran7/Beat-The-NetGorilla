@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import reducer from "./store/reducer";
 import { Provider } from "react-redux";
+import { Router, Route, Switch } from "react-router-dom";
 
 const store = createStore(
   reducer,
@@ -15,7 +16,11 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router>
+        <Switch>
+          <Route component={App} path="/" exact></Route>
+        </Switch>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -13,9 +13,11 @@
 }
 
 .timer {
-  font-size: 38px;
+  font-size: 60px;
   font-weight: 600;
   margin: 0;
+  color: #e6e6e6;
+  font-variant-numeric: slashed-zero;
 }
 
 .timer-info {
@@ -30,7 +32,6 @@
   flex-direction: row;
   flex-grow: 1;
   width: 80%;
-  overflow-y: scroll;
 }
 
 .textarea-left,
@@ -43,7 +44,7 @@
 .textarea {
   text-align: left;
   flex-grow: 1;
-  height: 220px;
+  height: 270px;
   width: 60%;
   padding: 10px;
   line-height: 18px;
@@ -56,10 +57,6 @@
   font-size: 75px;
 }
 
-.textarea:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
 .textarea::-webkit-scrollbar {
   display: none;
 }
@@ -70,7 +67,7 @@
 }
 
 .correctWord {
-  color: blue;
+  color: #e2b714;
   font-size: 30px;
   font-family: "Montserrat", sans-serif;
 }
@@ -83,11 +80,13 @@
 .standard-word {
   font-size: 30px;
   font-family: "Montserrat", sans-serif;
+  color: #646669;
 }
 .current-word {
   font-size: 30px;
   font-family: "Montserrat", sans-serif;
-  color: green;
+  border-left: solid #965f33;
+  color: #646669;
 }
 .textarea-hidden {
   text-align: left;
@@ -99,12 +98,11 @@
   flex-wrap: wrap;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: scroll;
-  color: black;
+  color: #784c29;
   position: absolute;
   background: transparent;
   left: 20%;
-  top: 75%;
+  top: 88%;
   caret-color: red;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
@@ -116,6 +114,7 @@
 
 .level-container {
   display: flex;
+  color: #e6e6e6;
 }
 
 .level-button {
@@ -127,14 +126,18 @@
   height: 25px;
 }
 .level-button:hover {
-  color: blue;
+  color: #715b0a;
   cursor: pointer;
+}
+.level-button:focus {
+  color: #715b0a;
 }
 .refresh-icon {
   color: grey;
+  padding-right: 5px;
 }
 .refresh-icon:hover {
-  color: darkslateblue;
+  color: #715b0a;
   cursor: pointer;
 }
 
@@ -142,4 +145,8 @@
   height: 25px;
   margin: 3px;
   padding: 1.5px;
+}
+
+.icons-row {
+  display: flex;
 }

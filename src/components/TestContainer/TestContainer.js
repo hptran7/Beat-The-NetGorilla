@@ -2,15 +2,20 @@ import TypingChallengeContainer from "../TypingChallengeContainer/TypingChalleng
 import TryAgain from "./../TryAgain/TryAgain";
 import "./TestContainer.css";
 import { connect } from "react-redux";
+import LeaderBoard from "../leaderBoard/LeaderBoard";
+import { useState } from "react";
 
 const TestContainer = (props) => {
-  const showChallenge = props.isFinished; // temporary var (Will be replaced while building the app)
+  const showChallenge = props.isFinished;
+  const [showLeaderBoard, setShowLeaderBoard] = useState(false);
 
   return (
     <div className="test-container">
-      {!showChallenge ? (
+      {showLeaderBoard ? (
+        <LeaderBoard setShowLeaderBoard={setShowLeaderBoard} />
+      ) : !showChallenge ? (
         <div className="typing-challenge-cont">
-          <TypingChallengeContainer />
+          <TypingChallengeContainer setShowLeaderBoard={setShowLeaderBoard} />
         </div>
       ) : (
         <div className="try-again-cont">

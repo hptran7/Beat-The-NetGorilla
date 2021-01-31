@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import TestContainer from "../TestContainer/TestContainer";
+import Modal from "../Modals/Modal";
 
 class App extends React.Component {
   constructor() {
@@ -12,9 +13,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <h1 className="main-heading">Beat the NetRunner</h1>
+        <div className="main-heading">
+          <div className="title">Beat the NetGorilla</div>
+        </div>
         <div className="test-container-main">
           <TestContainer />
+        </div>
+        <div className="container">
+          <Modal></Modal>
         </div>
       </div>
     );
