@@ -1,6 +1,6 @@
 import React from "react";
 import "./FrontPage.css";
-const FrontPage = () => {
+const FrontPage = (props) => {
   return (
     <div className="box">
       <div className="content">
@@ -16,7 +16,11 @@ const FrontPage = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
-        <a href="http://localhost:3000/game">
+        <a
+          onClick={() => {
+            props.history.push("/game");
+          }}
+        >
           <span></span>
           <span></span>
           <span></span>
