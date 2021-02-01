@@ -117,8 +117,9 @@ const TypingChallenge = (props) => {
       setMixedWords(randomElementSelector(props.originalQuotes));
     }
   }, [props.level, refresh, props.testType]);
+
   useEffect(() => {
-    if (props.timeRemain <= 0) {
+    if (props.timeRemain <= 0 || (props.timeTick > 5 && props.wpm < 15)) {
       setIsTimeRunning(false);
       setNumberOfDiferrences(
         testDetailsCalculator(mixedWords, typedValue, "differences")
@@ -263,13 +264,12 @@ const TypingChallenge = (props) => {
         />
       </div>
       <div className="textarea-container">
-        <div className="textarea-left ">
+        <div className="card">
+          <span className="moving-line line-1"></span>
           <div className="textarea">{listOfWords}</div>
         </div>
 
-        <div className="textarea-right">
-          <textarea className="textarea-hidden" onChange={handleOnChange} />
-        </div>
+        <textarea className="textarea-hidden" onChange={handleOnChange} />
       </div>
     </div>
   );
@@ -284,6 +284,8 @@ const mapStateToProps = (state) => {
     originalQuotes: state.originalQuotes,
     testType: state.testType,
     isFinished: state.isFinished,
+    wpm: state.wpm,
+    timeTick: state.timeTick,
   };
 };
 

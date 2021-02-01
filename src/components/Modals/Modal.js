@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import "./Modal.css";
 import { Icon } from "@iconify/react";
@@ -50,9 +50,9 @@ const Modal = (props) => {
     const day = score.updatedAt.slice(8, 10);
     let date = month + "-" + day + "-" + year;
     return (
-      <>
+      <Fragment key={index}>
         {index == 0 ? (
-          <tr key={index}>
+          <tr>
             <td>
               <Icon icon={crownLine} />
             </td>
@@ -63,7 +63,7 @@ const Modal = (props) => {
             <td>{date}</td>
           </tr>
         ) : index % 2 !== 0 ? (
-          <tr key={index}>
+          <tr>
             <td>{index}</td>
             <td>{score.userName}</td>
             <td>{score.wpm}</td>
@@ -72,7 +72,7 @@ const Modal = (props) => {
             <td>{date}</td>
           </tr>
         ) : (
-          <tr key={index} bgcolor="#1a1b1c">
+          <tr bgcolor="#1a1b1c">
             <td>{index}</td>
             <td>{score.userName}</td>
             <td>{score.wpm}</td>
@@ -81,7 +81,7 @@ const Modal = (props) => {
             <td>{date}</td>
           </tr>
         )}
-      </>
+      </Fragment>
     );
   });
 
@@ -93,6 +93,10 @@ const Modal = (props) => {
       {props.showLeaderBoard ? (
         <div className="background">
           <div className="modalWrapper">
+            <span className="moving-line line1" key={1}></span>
+            <span className="moving-line line2" key={2}></span>
+            <span className="moving-line line3" key={3}></span>
+            <span className="moving-line line4" key={4}></span>
             <div className="modal-header">
               <Icon
                 icon={closeOutlined}
