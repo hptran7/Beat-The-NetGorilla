@@ -129,3 +129,6 @@ table {
     transfrom: translateY(-100%);
   }
 }
+tbody {
+  overflow: hidden;
+}

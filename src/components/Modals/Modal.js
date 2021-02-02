@@ -54,7 +54,7 @@ const Modal = (props) => {
     return (
       <Fragment key={index}>
         {index == 0 ? (
-          <tr>
+          <tr bgcolor="#1a1b1c">
             <td>
               <Icon icon={crownLine} />
             </td>

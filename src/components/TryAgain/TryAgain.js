@@ -45,7 +45,9 @@ const TryAgain = (props) => {
       })
       .then((result) => {
         if (result.data.message == "success") {
-          setMessage("Your Score has been posted");
+          setMessage(
+            "Your Score has been posted, You can check it on the leaderboard"
+          );
         }
       });
   };
@@ -75,7 +77,12 @@ const TryAgain = (props) => {
         <p>
           Unfortunately, you are too slow, the gorilla has taken over the world!
         </p>
-      ) : null}
+      ) : (
+        <p>
+          Congratulation, you have stopped the gorilla from taking over the
+          world!
+        </p>
+      )}
       <div className="result-container">
         <p>WPM: {props.wpm}</p>
         <p>misspelled words: {props.differences}</p>
