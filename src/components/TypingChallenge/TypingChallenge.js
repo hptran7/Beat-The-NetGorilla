@@ -25,7 +25,7 @@ const TypingChallenge = (props) => {
   const [showOptionNameLeaderboard, setShowOptionNameLeaderboard] = useState(
     false
   );
-  const [showOptionNameRestart, setShowOptionNameRestart] = useState(true);
+  const [showOptionNameRestart, setShowOptionNameRestart] = useState(false);
   const executeScroll = () => myRef.current.scrollIntoView();
   const history = useHistory();
 
