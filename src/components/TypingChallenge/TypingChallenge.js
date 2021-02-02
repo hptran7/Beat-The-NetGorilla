@@ -119,7 +119,7 @@ const TypingChallenge = (props) => {
   }, [props.level, refresh, props.testType]);
 
   useEffect(() => {
-    if (props.timeRemain <= 0 || (props.timeTick > 5 && props.wpm < 15)) {
+    if (props.timeRemain <= 0 || (props.timeTick > 5 && props.wpm < 25)) {
       setIsTimeRunning(false);
       setNumberOfDiferrences(
         testDetailsCalculator(mixedWords, typedValue, "differences")

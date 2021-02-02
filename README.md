@@ -13,13 +13,13 @@
 
 ## About the Project
 
-Beat The NetGorilla is a speed typing game built with React for frontend and Node.js for backend. The test quote is generated randomly to create unique experience. Your speed and accuracy is calculated simultaneously so you can check your progress.
+Beat The NetGorilla is a speed typing game built with React for frontend and Node.js for backend. The test quote is generated randomly to create unique experience for each gameplay. Your speed and accuracy is calculated simultaneously so you can check your progress.
 
 ## Usage
 
 To start, visit [Beat The NetGorilla](http://net-gorilla.surge.sh/).
 
-Once you're in, you will be able to choose your level (higher level will have more blank characters) and your test type (either words or quote ). You have to type as fast as you can in 45 seconds. The game will end if your wpm (words per minutes) falls below 25wpm
+Once you're in, you will be able to choose your level (higher level will have more blank characters) and your gameplay type (either words or quote ). You have to type as fast as you can in 45 seconds. The game will end if your wpm (words per minutes) falls below 25wpm.
 
 ## Videos and Screenshots
 
