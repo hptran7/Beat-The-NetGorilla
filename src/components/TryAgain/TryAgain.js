@@ -1,6 +1,7 @@
 import "./TryAgain.css";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const TryAgain = (props) => {
@@ -9,6 +10,8 @@ const TryAgain = (props) => {
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(true);
+  const history = useHistory();
+
   useEffect(() => {
     setTotalPoint(
       point(props.words, props.differences, props.wpm, props.level)
@@ -19,7 +22,7 @@ const TryAgain = (props) => {
     }
   }, []);
   const refreshPage = () => {
-    window.location.reload(false);
+    history.go(0);
   };
   const showpostScoreDiv = () => {
     setShowPostScore(!showPostScore);

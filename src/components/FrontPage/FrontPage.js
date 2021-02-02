@@ -8,9 +8,9 @@ const FrontPage = (props) => {
         <p>
           Hello, welcome to "Beat The NetGorilla". Your computer is being hacked
           by a gorilla. To protect your precious computer, you have to defeat
-          him in a speed typing text. But beware, this gorilla is extremely
+          him in a speed typing game. But beware, this gorilla is extremely
           intelligent, he will try to cheat by hiding some characters. Your job
-          is to guest the correct words and type faster than him. May the odds
+          is to guess the correct words and type faster than him. May the odds
           be ever in your favor!
         </p>
         <a
