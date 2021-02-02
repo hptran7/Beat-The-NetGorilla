@@ -17,7 +17,7 @@ const TryAgain = (props) => {
       point(props.words, props.differences, props.wpm, props.level)
     );
     setMessage("");
-    if (props.wpm < 15) {
+    if (props.wpm < 25) {
       setSuccess(false);
     }
   }, []);

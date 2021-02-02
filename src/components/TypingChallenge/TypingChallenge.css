@@ -162,3 +162,17 @@
   height: 3px;
   background: linear-gradient(to right, transparent, #ff005e);
 }
+.second-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 50px;
+}
+.second-option p {
+  margin: 5px 0 0 0;
+  font-size: 15px;
+  position: absolute;
+  left: 5px;
+}

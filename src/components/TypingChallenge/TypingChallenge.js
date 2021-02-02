@@ -1,11 +1,13 @@
 import "./TypingChallenge.css";
 import { connect } from "react-redux";
 import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import testDetailsCalculator from "../../helper/testDetailsCalculator";
 import { Icon } from "@iconify/react";
 import refreshIcon from "@iconify-icons/mdi/refresh";
 import { randomElementSelector } from "../../helper/randomSelector";
 import outlineLeaderboard from "@iconify-icons/ic/outline-leaderboard";
+import arrowChange from "@iconify-icons/si-glyph/arrow-change";
 
 const TypingChallenge = (props) => {
   const [isTimeRunning, setIsTimeRunning] = useState(false);
@@ -19,7 +21,13 @@ const TypingChallenge = (props) => {
   const [refresh, setRefresh] = useState(false);
   const [showGuide, setShowguide] = useState(true);
   const myRef = useRef(null);
+  const [showOptionNameRefresh, setShowOptionNameRefresh] = useState(false);
+  const [showOptionNameLeaderboard, setShowOptionNameLeaderboard] = useState(
+    false
+  );
+  const [showOptionNameRestart, setShowOptionNameRestart] = useState(true);
   const executeScroll = () => myRef.current.scrollIntoView();
+  const history = useHistory();
 
   const punctuationMarks = [
     "!",
@@ -164,6 +172,8 @@ const TypingChallenge = (props) => {
           <span className="standard-word">{word}</span>
         ) : mixedWords.split("")[index] == typedValue[index] ? (
           <span className="correctWord">{word}</span>
+        ) : mixedWords.split("")[index] == " " ? (
+          <span className="incorrectWord">_</span>
         ) : (
           <span className="incorrectWord">{word}</span>
         )}
@@ -243,25 +253,65 @@ const TypingChallenge = (props) => {
           </p>
         ) : null}
       </div>
-      <div className="icons-row">
-        <Icon
-          icon={refreshIcon}
-          width="1.25em"
-          height="1.25em"
-          onClick={() => {
-            refreshText();
-          }}
-          className="refresh-icon"
-        />
-        <Icon
-          icon={outlineLeaderboard}
-          width="1.25em"
-          height="1.25em"
-          className="refresh-icon"
-          onClick={() => {
-            props.OnShowLeaderBoard();
-          }}
-        />
+      <div className="second-option">
+        <div className="icons-row">
+          <Icon
+            icon={refreshIcon}
+            width="1.25em"
+            height="1.25em"
+            onClick={() => {
+              refreshText();
+            }}
+            className="refresh-icon"
+            onMouseEnter={() => {
+              setShowOptionNameRefresh(true);
+            }}
+            onMouseLeave={() => {
+              setShowOptionNameRefresh(false);
+            }}
+          />
+          <Icon
+            icon={outlineLeaderboard}
+            width="1.25em"
+            height="1.25em"
+            className="refresh-icon"
+            onClick={() => {
+              props.OnShowLeaderBoard();
+            }}
+            onMouseEnter={() => {
+              setShowOptionNameLeaderboard(true);
+            }}
+            onMouseLeave={() => {
+              setShowOptionNameLeaderboard(false);
+            }}
+          />
+          <Icon
+            icon={arrowChange}
+            width="1em"
+            height="1em"
+            className="refresh-icon"
+            onMouseEnter={() => {
+              setShowOptionNameRestart(true);
+            }}
+            onMouseLeave={() => {
+              setShowOptionNameRestart(false);
+            }}
+            onClick={() => {
+              history.go(0);
+            }}
+          />
+        </div>
+        <div className="optionName">
+          {showOptionNameRefresh ? (
+            <p className="hidden-refresh">refresh</p>
+          ) : null}
+          {showOptionNameLeaderboard ? (
+            <p className="hidden-leaderboard">leaderboard</p>
+          ) : null}
+          {showOptionNameRestart ? (
+            <p className="hidden-leaderboard">Restart Game</p>
+          ) : null}
+        </div>
       </div>
       <div className="textarea-container">
         <div className="card">

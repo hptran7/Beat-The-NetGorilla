@@ -123,7 +123,7 @@ const Modal = (props) => {
                     <td>date</td>
                   </tr>
                 </thead>
-                <tbody>{scoreList}</tbody>
+                {scoreList ? <tbody>{scoreList}</tbody> : <div>Loading</div>}
               </table>
             </div>
           </div>
