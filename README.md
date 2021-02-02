@@ -27,8 +27,7 @@ Click below to see Boris demo Gachasphere:
 
 <img src="./src/images/frontPage.png" width="600" alt="Gachasphere Mobile Walkthrough"/>
 
-<img src="./src/images/theGame.png" width="600" alt="game play"/>
-<img src="./src/images/typing.png" width="600" alt="typing"/>
+<img src="./src/images/typing.png" width="600" alt="game play"/>
 <img src="./src/images/result.png" width="600" alt="result screen"/>
 <img src="./src/images/leaderBoard.png" width="600" alt="leaderboard"/>
 
