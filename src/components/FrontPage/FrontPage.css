@@ -129,5 +129,8 @@ a:hover span:nth-child(4) {
 }
 h1 {
   font-family: "myFont";
-  font-size: 35px;
+  font-size: 2.2em;
+}
+p {
+  font-size: 1.3em;
 }

@@ -6,15 +6,12 @@ const FrontPage = (props) => {
       <div className="content">
         <h1>Beat The NetGorilla</h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          Hello, welcome to "Beat The NetGorilla". Your computer is being hacked
+          by a gorilla. To protect your precious computer, you have to defeat
+          him in a speed typing text. But beware, this gorilla is extremely
+          intelligent, he will try to cheat by hiding some characters. Your job
+          is to guest the correct words and type faster than him. May the odds
+          be ever in your favor!
         </p>
         <a
           onClick={() => {

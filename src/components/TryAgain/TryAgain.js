@@ -8,11 +8,15 @@ const TryAgain = (props) => {
   const [showPostScore, setShowPostScore] = useState(false);
   const [userName, setUserName] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(true);
   useEffect(() => {
     setTotalPoint(
       point(props.words, props.differences, props.wpm, props.level)
     );
     setMessage("");
+    if (props.wpm < 15) {
+      setSuccess(false);
+    }
   }, []);
   const refreshPage = () => {
     window.location.reload(false);
@@ -29,7 +33,7 @@ const TryAgain = (props) => {
     let differences = props.differences;
     let wpm = props.wpm;
     axios
-      .post("http://localhost:8080/post-score", {
+      .post("https://beat-netgorilla.herokuapp.com/post-score", {
         userName: userName,
         wpm: wpm,
         point: totalPoint,
@@ -64,7 +68,11 @@ const TryAgain = (props) => {
   return (
     <div className="try-again-container">
       <h1>Test Results</h1>
-
+      {!success ? (
+        <p>
+          Unfortunately, you are too slow, the gorilla has taken over the world!
+        </p>
+      ) : null}
       <div className="result-container">
         <p>WPM: {props.wpm}</p>
         <p>misspelled words: {props.differences}</p>
@@ -79,14 +87,17 @@ const TryAgain = (props) => {
       >
         Try Again
       </button>
-      <button
-        className="start-again-btn"
-        onClick={() => {
-          showpostScoreDiv();
-        }}
-      >
-        Post Score
-      </button>
+      {success ? (
+        <button
+          className="start-again-btn"
+          onClick={() => {
+            showpostScoreDiv();
+          }}
+        >
+          Post Score
+        </button>
+      ) : null}
+
       {showPostScore ? (
         <div>
           <input

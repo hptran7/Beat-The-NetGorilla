@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import reducer from "./store/reducer";
 import { Provider } from "react-redux";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
 import history from "./utils/history";
 import FrontPage from "./components/FrontPage/FrontPage";
 
@@ -18,12 +18,12 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router history={history}>
+      <BrowserRouter>
         <Switch>
           <Route component={FrontPage} path="/" exact></Route>
           <Route component={App} path="/game"></Route>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

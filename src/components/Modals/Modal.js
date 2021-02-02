@@ -37,9 +37,11 @@ const Modal = (props) => {
   };
   const [leaderboardScore, setLeaderboardScore] = useState([]);
   const fetchLeaderboardData = async () => {
-    await axios.get("http://localhost:8080/leaderboard").then((result) => {
-      setLeaderboardScore(result.data);
-    });
+    await axios
+      .get("https://beat-netgorilla.herokuapp.com/leaderboard")
+      .then((result) => {
+        setLeaderboardScore(result.data);
+      });
   };
   const handleCloseButton = () => {
     props.OnCloseBoard();
@@ -64,7 +66,7 @@ const Modal = (props) => {
           </tr>
         ) : index % 2 !== 0 ? (
           <tr>
-            <td>{index}</td>
+            <td>{index + 1}</td>
             <td>{score.userName}</td>
             <td>{score.wpm}</td>
             <td>{score.point}</td>
@@ -73,7 +75,7 @@ const Modal = (props) => {
           </tr>
         ) : (
           <tr bgcolor="#1a1b1c">
-            <td>{index}</td>
+            <td>{index + 1}</td>
             <td>{score.userName}</td>
             <td>{score.wpm}</td>
             <td>{score.point}</td>
