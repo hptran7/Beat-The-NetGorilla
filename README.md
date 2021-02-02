@@ -13,25 +13,24 @@
 
 ## About the Project
 
-Gachasphere was built with the intention of being a central hub for all things mobile gaming. Due to the free-to-play nature of Gacha games, most players are actively playing multiple games at the same time. Unfortunately, the communities for each individual game remain isolated. Gachasphere hopes bridge the gap between existing communities and connect players from all over the world together.
+Beat The NetGorilla is a speed typing game built with React for frontend and Node.js for backend. The test quote is generated randomly to create unique experience. Your speed and accuracy is calculated simultaneously so you can check your progress.
 
 ## Usage
 
-To start, visit [Gachasphere](http://gachasphere.surge.sh), register a new account, log into your existing account, or click the login as guest button.
+To start, visit [Beat The NetGorilla](http://net-gorilla.surge.sh/).
 
-Once you're in, you will be able to see the global user rankings for all the top games. From there, you can create your own list of games that you have played. You can give each game a Gameplay rating and a Free-To-Play rating. Each game has its own dedicated page where you can see more details including popular Reddit threads and Twitter posts from the game's official account.
+Once you're in, you will be able to choose your level (higher level will have more blank characters) and your test type (either words or quote ). You have to type as fast as you can in 45 seconds. The game will end if your wpm (words per minutes) falls below 25wpm
 
 ## Videos and Screenshots
 
 Click below to see Boris demo Gachasphere:
 
-[![Gachasphere Walkthrough Video](http://img.youtube.com/vi/sWotwScHFTo/0.jpg)](http://www.youtube.com/watch?v=sWotwScHFTo "Gachasphere Walkthrough")
+<img src="./src/images/frontPage.png" width="600" alt="Gachasphere Mobile Walkthrough"/>
 
-<img src="./src/images/gachasphereMobile.gif" width="375" alt="Gachasphere Mobile Walkthrough"/>
-
-<img src="./src/images/emailScreenshot.png" width="600" alt="Gachasphere Forgot Password Email"/>
-
-## Getting Started
+<img src="./src/images/theGame.png" width="600" alt="game play"/>
+<img src="./src/images/typing.png" width="600" alt="typing"/>
+<img src="./src/images/result.png" width="600" alt="result screen"/>
+<img src="./src/images/leaderBoard.png" width="600" alt="leaderboard"/>
 
 To set up a local copy of the project follow the steps below. Be sure to follow the instructions in the [server-side repository](https://github.com/hptran7/Beat-The-NetGorilla.git) as well.
 
@@ -80,9 +79,6 @@ npm start
 
 ## Authors
 
-- **Borinquen "Boris" Rodriguez** - [brodri4](https://github.com/brodri4)
-- **Abbey Perini** - [abbeyperini](https://github.com/abbeyperini)
-- **Jonathan Nuno** - [Jonathan-Nuno](https://github.com/Jonathan-Nuno)
 - **Hung Tran** - [hptran7](https://github.com/hptran7)
 
 ## Acknowledgements
