@@ -201,6 +201,7 @@
   }
   .textarea-hidden {
     width: 70%;
+    font-size: 25px;
   }
   .correctWord,
   .incorrectWord,
@@ -216,6 +217,9 @@
   .current-word {
     font-size: 20px;
   }
+  .textarea-hidden {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 725px) {
   .textarea,
@@ -226,7 +230,8 @@
   .correctWord,
   .incorrectWord,
   .standard-word,
-  .current-word {
+  .current-word,
+  .textarea-hidden {
     font-size: 17px;
   }
 }
@@ -238,7 +243,8 @@
   .correctWord,
   .incorrectWord,
   .standard-word,
-  .current-word {
+  .current-word,
+  .textarea-hidden {
     font-size: 17px;
   }
 }

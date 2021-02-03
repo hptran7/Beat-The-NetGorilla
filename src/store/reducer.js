@@ -1,6 +1,6 @@
 const initialState = {
   words: 0,
-  level: 3,
+  level: 2,
   mistakes: 0,
   timeRemain: 60,
   originalValue:

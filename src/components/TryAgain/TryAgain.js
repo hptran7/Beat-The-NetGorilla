@@ -17,7 +17,7 @@ const TryAgain = (props) => {
       point(props.words, props.differences, props.wpm, props.level)
     );
     setMessage("");
-    if (props.wpm < 27) {
+    if (props.wpm <= 35) {
       setSuccess(false);
     }
   }, []);
@@ -77,12 +77,7 @@ const TryAgain = (props) => {
         <p>
           Unfortunately, you are too slow, the gorilla has taken over the world!
         </p>
-      ) : (
-        <p>
-          Congratulation, you have stopped the gorilla from taking over the
-          world!
-        </p>
-      )}
+      ) : null}
       <div className="result-container">
         <p>WPM: {props.wpm}</p>
         <p>misspelled words: {props.differences}</p>
