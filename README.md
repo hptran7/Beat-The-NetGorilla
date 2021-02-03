@@ -19,7 +19,7 @@ Beat The NetGorilla is a speed typing game built with React for frontend and Nod
 
 To start, visit [Beat The NetGorilla](http://net-gorilla.surge.sh/).
 
-Once you're in, you will be able to choose your level (higher level will have more blank characters) and your gameplay type (either words or quote ). You have to type as fast as you can in 60 seconds. The game will end if your wpm (words per minutes) falls below 25 wpm.
+Once you're in, you will be able to choose your level (higher level will have more blank characters) and your gameplay type (either words or quote ). You have to type as fast as you can in 60 seconds. The game will end if your wpm (words per minutes) falls below 35 wpm.
 
 ## Videos and Screenshots
 
