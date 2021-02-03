@@ -176,3 +176,69 @@
   position: absolute;
   left: 5px;
 }
+@media screen and (max-width: 500px) {
+  .level-title {
+    font-size: 15px;
+  }
+  .level-button {
+    font-size: 15px;
+  }
+  .timer-info {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .level-title {
+    font-size: 12px;
+  }
+  .level-button {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .textarea {
+    width: 70%;
+  }
+  .textarea-hidden {
+    width: 70%;
+  }
+  .correctWord,
+  .incorrectWord,
+  .standard-word,
+  .current-word {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .correctWord,
+  .incorrectWord,
+  .standard-word,
+  .current-word {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 725px) {
+  .textarea,
+  .textarea-hidden {
+    width: 90%;
+    left: 10%;
+  }
+  .correctWord,
+  .incorrectWord,
+  .standard-word,
+  .current-word {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .textarea,
+  .textarea-hidden {
+    width: 90%;
+  }
+  .correctWord,
+  .incorrectWord,
+  .standard-word,
+  .current-word {
+    font-size: 17px;
+  }
+}

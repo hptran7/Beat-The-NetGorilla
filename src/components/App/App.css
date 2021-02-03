@@ -77,3 +77,33 @@ body {
       0 0 80px #e3b814, 0 0 160px #e3b814;
   }
 }
+@media screen and (max-width: 1370px) {
+  .title {
+    font-size: 70px;
+  }
+}
+@media screen and (max-width: 1370px) {
+  .title {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .main-heading {
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent);
+  }
+}
+@media screen and (max-width: 675px) {
+  .title {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .title {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .title {
+    font-size: 20px;
+  }
+}

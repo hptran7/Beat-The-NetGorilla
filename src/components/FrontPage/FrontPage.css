@@ -135,3 +135,25 @@ p {
   font-size: 1.3em;
   color: #e6e6e6;
 }
+@media screen and (max-width: 550px) {
+  .box {
+    width: 400px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .box {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 355px) {
+  .box {
+    width: 300px;
+    height: 500px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}

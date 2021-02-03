@@ -49,12 +49,31 @@ h1 {
 .leaderboard-title {
   color: #646669;
 }
-table {
+/* table {
   border-collapse: collapse;
   width: 70%;
   line-height: 30px;
 }
+tr {
+  display: table;
+  padding: 25px;
+}
+tbody {
+  display: block;
+} */
+table tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: scroll;
+}
 
+table thead,
+table tbody tr {
+  display: table;
+  width: 80%;
+  table-layout: fixed;
+  margin: auto;
+}
 .moving-line {
   transition: 0.5s;
 }
@@ -131,4 +150,42 @@ table {
 }
 tbody {
   overflow: hidden;
+}
+@media screen and (max-width: 975px) {
+  td {
+    font-size: 15px;
+  }
+  table thead,
+  table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 770px) {
+  td {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 550px) {
+  td {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  td {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 385px) {
+  td {
+    font-size: 7px;
+  }
+}
+@media screen and (max-height: 750px) {
+  table tbody {
+    max-height: 220px;
+  }
 }

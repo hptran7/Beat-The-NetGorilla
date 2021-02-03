@@ -25,3 +25,11 @@
   margin: 0;
   padding-top: 10px;
 }
+@media screen and (max-width: 425px) {
+  .card-name {
+    font-size: 10px;
+  }
+  .card-value {
+    font-size: 30px;
+  }
+}
