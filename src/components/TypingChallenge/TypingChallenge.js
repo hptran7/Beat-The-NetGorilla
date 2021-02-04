@@ -26,6 +26,8 @@ const TypingChallenge = (props) => {
     false
   );
   const [showOptionNameRestart, setShowOptionNameRestart] = useState(false);
+  const [chosenType, setChosenType] = useState("quotes");
+  const [chosenLevel, setChosenLevel] = useState(null);
   const executeScroll = () => myRef.current.scrollIntoView();
   const history = useHistory();
 
@@ -124,6 +126,7 @@ const TypingChallenge = (props) => {
     } else if (props.testType == "quotes") {
       setMixedWords(randomElementSelector(props.originalQuotes));
     }
+    setChosenLevel(props.level);
   }, [props.level, refresh, props.testType]);
 
   useEffect(() => {
@@ -185,65 +188,146 @@ const TypingChallenge = (props) => {
     <div className="typing-challenge">
       <div className="level-container">
         <p className="level-title">Level: </p>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnChangeLevel(1);
-          }}
-        >
-          level 1
-        </button>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnChangeLevel(2);
-          }}
-        >
-          level 2
-        </button>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnChangeLevel(3);
-          }}
-        >
-          level 3
-        </button>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnChangeLevel(4);
-          }}
-        >
-          level 4
-        </button>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnChangeLevel(5);
-          }}
-        >
-          level 5
-        </button>
+        {chosenLevel == 1 ? (
+          <button
+            className="chosen-level level-button"
+            onClick={() => {
+              props.OnChangeLevel(1);
+            }}
+          >
+            level 1
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnChangeLevel(1);
+            }}
+          >
+            level 1
+          </button>
+        )}
+        {chosenLevel == 2 ? (
+          <button
+            className="chosen-level level-button"
+            onClick={() => {
+              props.OnChangeLevel(2);
+            }}
+          >
+            level 2
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnChangeLevel(2);
+            }}
+          >
+            level 2
+          </button>
+        )}
+        {chosenLevel == 3 ? (
+          <button
+            className="chosen-level level-button"
+            onClick={() => {
+              props.OnChangeLevel(3);
+            }}
+          >
+            level 3
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnChangeLevel(3);
+            }}
+          >
+            level 3
+          </button>
+        )}
+        {chosenLevel == 4 ? (
+          <button
+            className="chosen-level level-button"
+            onClick={() => {
+              props.OnChangeLevel(4);
+            }}
+          >
+            level 4
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnChangeLevel(4);
+            }}
+          >
+            level 4
+          </button>
+        )}
+        {chosenLevel == 5 ? (
+          <button
+            className="chosen-level level-button"
+            onClick={() => {
+              props.OnChangeLevel(5);
+            }}
+          >
+            level 5
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnChangeLevel(5);
+            }}
+          >
+            level 5
+          </button>
+        )}
       </div>
       <div className="level-container">
         <p className="level-title">Type:</p>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnTypedChange("words");
-          }}
-        >
-          Words
-        </button>
-        <button
-          className="level-button"
-          onClick={() => {
-            props.OnTypedChange("quotes");
-          }}
-        >
-          Quotes
-        </button>
+        {chosenType == "words" ? (
+          <button
+            className="chosen level-button"
+            onClick={() => {
+              props.OnTypedChange("words");
+              setChosenType("words");
+            }}
+          >
+            Words
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnTypedChange("words");
+              setChosenType("words");
+            }}
+          >
+            Words
+          </button>
+        )}
+        {chosenType == "quotes" ? (
+          <button
+            className="chosen level-button"
+            onClick={() => {
+              props.OnTypedChange("quotes");
+              setChosenType("quotes");
+            }}
+          >
+            Quotes
+          </button>
+        ) : (
+          <button
+            className="level-button"
+            onClick={() => {
+              props.OnTypedChange("quotes");
+              setChosenType("quotes");
+            }}
+          >
+            Quotes
+          </button>
+        )}
       </div>
       <div className="timer-container">
         <p className="timer">{props.timeRemain}</p>

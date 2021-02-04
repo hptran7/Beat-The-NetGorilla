@@ -129,8 +129,18 @@
   color: #715b0a;
   cursor: pointer;
 }
+
 .level-button:focus {
   color: #715b0a;
+}
+
+.chosen {
+  border: solid 1px #ff0099;
+  border-radius: 5px;
+  color: #00ffe6;
+}
+.chosen-level {
+  color: red;
 }
 .refresh-icon {
   color: grey;
