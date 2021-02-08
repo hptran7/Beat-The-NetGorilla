@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import crownLine from "@iconify-icons/clarity/crown-line";
 import closeOutlined from "@iconify-icons/ant-design/close-outlined";
 import axios from "axios";
+import Loading from "../Loading/Loading";
 
 const Modal = (props) => {
   const returnMonth = (month) => {
@@ -112,19 +113,23 @@ const Modal = (props) => {
               <h1>Leader board</h1>
             </div>
             <div className="modal-body">
-              <table>
-                <thead>
-                  <tr className="leaderboard-title">
-                    <td>#</td>
-                    <td>name</td>
-                    <td>wpm</td>
-                    <td>point</td>
-                    <td>acc</td>
-                    <td>date</td>
-                  </tr>
-                </thead>
-                {scoreList ? <tbody>{scoreList}</tbody> : <div>Loading</div>}
-              </table>
+              {scoreList ? (
+                <table>
+                  <thead>
+                    <tr className="leaderboard-title">
+                      <td>#</td>
+                      <td>name</td>
+                      <td>wpm</td>
+                      <td>point</td>
+                      <td>acc</td>
+                      <td>date</td>
+                    </tr>
+                  </thead>
+                  <tbody>{scoreList}</tbody>
+                </table>
+              ) : (
+                <Loading />
+              )}
             </div>
           </div>
         </div>

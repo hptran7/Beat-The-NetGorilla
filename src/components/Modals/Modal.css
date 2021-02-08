@@ -49,22 +49,11 @@ h1 {
 .leaderboard-title {
   color: #646669;
 }
-/* table {
-  border-collapse: collapse;
-  width: 70%;
-  line-height: 30px;
-}
-tr {
-  display: table;
-  padding: 25px;
-}
-tbody {
-  display: block;
-} */
+
 table tbody {
   display: block;
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 table thead,
